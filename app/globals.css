@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  color: white;
+  background-color: rgb(3, 3, 35);
+
+  /* overflow-x: hidden; */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+.main {
+  padding: 0 1rem;
+}
+.fix {
+  background-color: rgb(3, 3, 35);
+}
+.navbar {
+  background-color: rgb(8, 8, 54);
+}
+.boxs {
+  scroll-snap-type: x mandatory;
+  overflow: auto;
+}
+.box {
+  scroll-snap-align: start;
+}
+.top {
+  top: 6rem;
+}
+.top1 {
+  top: -1.5rem;
+}
+.active {
+  background-color: white;
+  width: 4rem;
+  border: 5px solid white;
+  border-radius: 6px;
+}
+@media screen and (max-width: 768px) {
+  .top {
+    top: 4rem;
+  }
+}
