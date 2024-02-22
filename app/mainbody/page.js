@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import img3 from "./icon-nav-movies.svg";
 import img8 from "./icon-nav-bookmark.svg";
-import Loading from "../loading";
 
 function Mainbody({ AllMovies, Book, setBook }) {
   const [Trending, SetTrending] = useState([]);
