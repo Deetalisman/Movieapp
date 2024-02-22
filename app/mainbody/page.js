@@ -33,7 +33,7 @@ function Mainmain({ AllMovies, SetTrending, Trending, handleBook }) {
       <p className="text-[1.3rem]">Trending</p>
       <div className="mt-5 flex justify-between flex-wrap lg:flex-nowrap">
         {Trending.filter((Trends) => Trends.isTrending == true).map((Trend) => (
-          <Eachtrend Trend={Trend} handleBook={handleBook} />
+          <Eachtrend key={Trend.title} Trend={Trend} handleBook={handleBook} />
         ))}
       </div>
     </div>
@@ -80,7 +80,7 @@ function Recommended({ AllMovies }) {
       <p>Recommended for you</p>
       <div className="mt-3 flex flex-wrap justify-between">
         {AllMovies.map((movies) => (
-          <Movies movies={movies} />
+          <Movies key={movies.title} movies={movies} />
         ))}
       </div>
     </div>

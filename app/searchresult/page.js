@@ -10,7 +10,7 @@ function Searchresult({ AllMovies, Search }) {
           {AllMovies.filter((searchres) =>
             searchres.title.toLowerCase().includes(Search.toLowerCase())
           ).map((searchr) => (
-            <Searchresults searchr={searchr} />
+            <Searchresults key={searchr.title} searchr={searchr} />
           ))}
         </div>
       )}
