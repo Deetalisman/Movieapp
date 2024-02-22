@@ -4,8 +4,6 @@ import img3 from "./icon-nav-movies.svg";
 import img8 from "./icon-nav-bookmark.svg";
 import img6 from "./icon-nav-tv-series.svg";
 import img9 from "./logo.svg";
-import { useState } from "react";
-import Link from "next/link";
 
 function Navbar({
   SetAll,
