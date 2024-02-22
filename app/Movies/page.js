@@ -3,7 +3,7 @@ import img3 from "./icon-nav-movies.svg";
 import img8 from "./icon-nav-bookmark.svg";
 function Movieslist({ AllMovies }) {
   return (
-    <div className="mt-0  ml-24 sm:ml-32 mt-24">
+    <div className=" ml-24 sm:ml-32 mt-24">
       <h1 className="text-[1.2rem] md:text-[1.5rem]">Movies</h1>
       <div className="flex flex-wrap justify-between mt-4">
         {AllMovies.filter((movies) => movies.category == "Movie").map(

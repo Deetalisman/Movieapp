@@ -5,56 +5,50 @@ import img3 from "./icon-nav-movies.svg";
 import img8 from "./icon-nav-bookmark.svg";
 import Loading from "../loading";
 
-function Mainbody({ AllMovies, Book, setBook }) {
+function Mainbody({ AllMovies }) {
   const [Trending, SetTrending] = useState([]);
   useEffect(() => {
     SetTrending(AllMovies);
-  }, [AllMovies]);
-  function handleBook(Trend) {
-    setBook((Book) => [...Book, Trend]);
-    console.log(Book);
-  }
+  });
   return (
-    <div className="mt-0 ml-24 sm:ml-32">
+    <div className="mt-0 ml-32 w-[90%]">
       <Mainmain
         AllMovies={AllMovies}
         SetTrending={SetTrending}
         Trending={Trending}
-        handleBook={handleBook}
       />
       <Recommended AllMovies={AllMovies} />
     </div>
   );
 }
 
-function Mainmain({ AllMovies, SetTrending, Trending, handleBook }) {
+function Mainmain({ AllMovies, SetTrending, Trending }) {
   return (
-    <div className="sm:mt-24 mt-20 ">
+    <div className="mt-24 ">
       <p className="text-[1.3rem]">Trending</p>
-      <div className="mt-5 flex justify-between flex-wrap lg:flex-nowrap">
+      <div className="mt-5 trending">
         {Trending.filter((Trends) => Trends.isTrending == true).map((Trend) => (
-          <Eachtrend key={Trend.title} Trend={Trend} handleBook={handleBook} />
+          <Eachtrend key={Trend.title} Trend={Trend} />
         ))}
       </div>
     </div>
   );
 }
-function Eachtrend({ Trend, handleBook }) {
+function Eachtrend({ Trend }) {
   return (
-    <div className="relative lg:mr-5 mr-3 sm:w-[30%] w-[45%] mb-4 md:mb-5 ">
+    <div className=" w-[40%] trend relative mr-5">
       <Image
         src={Trend.thumbnail.trending.large}
         alt={Trend.title}
         width="100"
-        height="400"
-        className="w-[100%] md:h-[9rem] h-[7rem] rounded-md"
+        height="100"
+        className="w-[100%] rounded-md"
       />
       <Image
         src={img8}
         alt="meeeeeeee"
         width="20"
-        className="mt-10 cursor-pointer absolute top1 right-2"
-        onClick={() => handleBook(Trend)}
+        className="mt-10 cursor-pointer absolute top1 right-2 "
       />
       <div className="absolute top left-3">
         <div className="flex justify-between">
@@ -76,7 +70,7 @@ function Eachtrend({ Trend, handleBook }) {
 
 function Recommended({ AllMovies }) {
   return (
-    <div className="sm:mt-7 mt-3">
+    <div className="mt-7 ">
       <p>Recommended for you</p>
       <div className="mt-3 flex flex-wrap justify-between">
         {AllMovies.map((movies) => (
@@ -89,7 +83,7 @@ function Recommended({ AllMovies }) {
 
 function Movies({ movies }) {
   return (
-    <div className="lg:w-[24%] md:w-[30%] w-[48%]  mb-5 relative">
+    <div className="w-[24%] mb-5 relative">
       <Image
         src={movies.thumbnail.regular.medium}
         width="100"

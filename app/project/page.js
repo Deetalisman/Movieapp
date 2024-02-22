@@ -15,7 +15,7 @@ function Project() {
   useEffect(() => {
     setAllMovies(data);
     console.log(AllMovies);
-  });
+  }, [AllMovies]);
   const [All, SetAll] = useState(true);
   const [Movies, SetMovies] = useState(false);
   const [Tvseries, SetTvseries] = useState(false);

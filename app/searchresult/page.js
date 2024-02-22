@@ -3,7 +3,7 @@ import img3 from "./icon-nav-movies.svg";
 import img8 from "./icon-nav-bookmark.svg";
 function Searchresult({ AllMovies, Search }) {
   return (
-    <div className="mt-0 ml-24 sm:ml-32 mt-24 ">
+    <div className=" ml-24 sm:ml-32 mt-24 ">
       {Search !== "" ? <p>Result for {Search}</p> : <p>Not Found</p>}
       {Search !== "" && (
         <div className="flex justify-between flex-wrap mt-5">
