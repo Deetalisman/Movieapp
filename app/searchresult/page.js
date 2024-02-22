@@ -7,9 +7,9 @@ function Searchresult({ AllMovies, Search }) {
       {Search !== "" ? <p>Result for {Search}</p> : <p>Not Found</p>}
       {Search !== "" && (
         <div className="flex justify-between flex-wrap mt-5">
-          {AllMovies.filter((searchres) =>
+          {AllMovies?.filter((searchres) =>
             searchres.title.toLowerCase().includes(Search.toLowerCase())
-          ).map((searchr) => (
+          )?.map((searchr) => (
             <Searchresults key={searchr.title} searchr={searchr} />
           ))}
         </div>

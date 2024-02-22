@@ -6,7 +6,7 @@ function Movieslist({ AllMovies }) {
     <div className=" ml-24 sm:ml-32 mt-24">
       <h1 className="text-[1.2rem] md:text-[1.5rem]">Movies</h1>
       <div className="flex flex-wrap justify-between mt-4">
-        {AllMovies.filter((movies) => movies.category == "Movie").map(
+        {AllMovies?.filter((movies) => movies.category == "Movie")?.map(
           (movie) => (
             <Eachmovie key={movie.title} movie={movie} />
           )

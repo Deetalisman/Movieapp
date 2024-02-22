@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import img2 from "./icon-nav-home.svg";
 import img3 from "./icon-nav-movies.svg";

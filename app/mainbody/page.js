@@ -9,36 +9,37 @@ function Mainbody({ AllMovies, Book, setBook }) {
   useEffect(() => {
     SetTrending(AllMovies);
   }, [AllMovies]);
-  function handleBook(Trend) {
-    setBook((Book) => [...Book, Trend]);
-    console.log(Book);
-  }
+  // function handleBook(Trend) {
+  //   setBook((Book) => [...Book, Trend]);
+  //   console.log(Book);
+  // }
   return (
     <div className="mt-0 ml-24 sm:ml-32">
       <Mainmain
         AllMovies={AllMovies}
         SetTrending={SetTrending}
         Trending={Trending}
-        handleBook={handleBook}
       />
       <Recommended AllMovies={AllMovies} />
     </div>
   );
 }
 
-function Mainmain({ AllMovies, SetTrending, Trending, handleBook }) {
+function Mainmain({ AllMovies, SetTrending, Trending }) {
   return (
     <div className="sm:mt-24 mt-20 ">
       <p className="text-[1.3rem]">Trending</p>
       <div className="mt-5 flex justify-between flex-wrap lg:flex-nowrap">
-        {Trending.filter((Trends) => Trends.isTrending == true).map((Trend) => (
-          <Eachtrend key={Trend.title} Trend={Trend} handleBook={handleBook} />
-        ))}
+        {Trending?.filter((Trends) => Trends.isTrending == true)?.map(
+          (Trend) => (
+            <Eachtrend key={Trend.title} Trend={Trend} />
+          )
+        )}
       </div>
     </div>
   );
 }
-function Eachtrend({ Trend, handleBook }) {
+function Eachtrend({ Trend }) {
   return (
     <div className="relative lg:mr-5 mr-3 sm:w-[30%] w-[45%] mb-4 md:mb-5 ">
       <Image
@@ -53,7 +54,6 @@ function Eachtrend({ Trend, handleBook }) {
         alt="meeeeeeee"
         width="20"
         className="mt-10 cursor-pointer absolute top1 right-2"
-        onClick={() => handleBook(Trend)}
       />
       <div className="absolute top left-3">
         <div className="flex justify-between">
@@ -78,7 +78,7 @@ function Recommended({ AllMovies }) {
     <div className="sm:mt-7 mt-3">
       <p>Recommended for you</p>
       <div className="mt-3 flex flex-wrap justify-between">
-        {AllMovies.map((movies) => (
+        {AllMovies?.map((movies) => (
           <Movies key={movies.title} movies={movies} />
         ))}
       </div>

@@ -6,7 +6,7 @@ function Tvserieslist({ AllMovies }) {
     <div className=" ml-24 sm:ml-32 mt-24">
       <h1 className=" text-[1.2rem] md:text-[1.5rem]">Tv Series</h1>
       <div className="flex flex-wrap justify-between mt-4">
-        {AllMovies.filter((tvseries) => tvseries.category == "TV Series").map(
+        {AllMovies?.filter((tvseries) => tvseries.category == "TV Series")?.map(
           (tvserie) => (
             <Eachtvseries key={tvserie.title} tvserie={tvserie} />
           )
