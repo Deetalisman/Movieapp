@@ -14,7 +14,7 @@ function Mainbody({ AllMovies, Book, setBook }) {
   //   console.log(Book);
   // }
   return (
-    <div className="mt-0 ml-24 sm:ml-32">
+    <div className="mt-0 ml-24 sm:ml-32 mainbody">
       <Mainmain
         AllMovies={AllMovies}
         SetTrending={SetTrending}
@@ -27,7 +27,7 @@ function Mainbody({ AllMovies, Book, setBook }) {
 
 function Mainmain({ AllMovies, SetTrending, Trending }) {
   return (
-    <div className="sm:mt-24 mt-20 ">
+    <div className="sm:mt-24 mt-20 mainmain ">
       <p className="text-[1.3rem]">Trending</p>
       <div className="mt-5 flex justify-between flex-wrap lg:flex-nowrap">
         {Trending?.filter((Trends) => Trends.isTrending == true)?.map(

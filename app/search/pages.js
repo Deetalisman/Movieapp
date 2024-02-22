@@ -3,8 +3,8 @@ import img5 from "./icon-search.svg";
 
 function Searchbar({ Search, setSearch, handleSearch }) {
   return (
-    <div className=" mt-0 ml-24 sm:ml-32 w-[90%]">
-      <div className="flex fixed z-20 fix w-[90%] py-4 pt-10">
+    <div className="ml-24 sm:ml-32 w-[90%] search">
+      <div className="flex fixed z-20 fix w-[90%] py-4 pt-10 search1">
         <div onClick={handleSearch}>
           <Image
             src={img5}

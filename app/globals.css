@@ -31,6 +31,7 @@ body {
 }
 .main {
   padding: 0 1rem;
+  display: flex;
 }
 .fix {
   background-color: rgb(3, 3, 35);
@@ -60,5 +61,53 @@ body {
 @media screen and (max-width: 768px) {
   .top {
     top: 4rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main {
+    display: block;
+  }
+  .navbar {
+    display: flex;
+    height: 3rem;
+    width: 92%;
+    top: 0;
+    padding: 10px 1rem;
+    justify-content: space-between;
+  }
+  .mainmain {
+    margin-top: 0;
+  }
+  .search {
+    margin-top: 5rem;
+    margin-left: 0;
+    width: 100%;
+  }
+  .img {
+    margin-top: 0;
+    height: 2rem;
+    width: 1rem;
+  }
+  .img1 {
+    height: 20px;
+    margin-top: 5px;
+  }
+  .img2 {
+    width: 2rem;
+  }
+  .search1 {
+    padding: 1rem;
+  }
+  .active {
+    background-color: white;
+    width: 25px;
+    height: 30px;
+    border: 2px solid white;
+    border-radius: 6px;
+  }
+  .mainbody {
+    margin-left: 0;
+    margin-top: 3rem;
+    padding-top: 4rem;
   }
 }

@@ -31,11 +31,11 @@ function Project() {
       SetTvseries(false);
       setSearchpost(true);
     } else {
-      console.log(search);
+      console.log(Search);
     }
   }
   return (
-    <div className="main flex">
+    <div className="main ">
       <Navbar
         All={All}
         Movies={Movies}
