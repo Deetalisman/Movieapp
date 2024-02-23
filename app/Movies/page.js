@@ -1,14 +1,14 @@
 import Image from "next/image";
 import img3 from "./icon-nav-movies.svg";
 import img8 from "./icon-nav-bookmark.svg";
-function Movieslist({ AllMovies }) {
+function Movieslist({ AllMovies, onAdd }) {
   return (
-    <div className=" ml-24 sm:ml-32 mt-24">
+    <div className=" ml-24 sm:ml-32 mt-24 mainbody">
       <h1 className="text-[1.2rem] md:text-[1.5rem]">Movies</h1>
       <div className="flex flex-wrap justify-between mt-4">
         {AllMovies?.filter((movies) => movies.category == "Movie")?.map(
           (movie) => (
-            <Eachmovie key={movie.title} movie={movie} />
+            <Eachmovie key={movie.title} movie={movie} onAdd={onAdd} />
           )
         )}
       </div>
@@ -16,22 +16,24 @@ function Movieslist({ AllMovies }) {
   );
 }
 
-function Eachmovie({ movie }) {
+function Eachmovie({ movie, onAdd }) {
   return (
-    <div className="relative mb-5 lg:w-[22%] md:w-[30%] w-[48%] ">
+    <div className="relative mb-5 lg:w-[22%] md:w-[30%] w-[48%] mov ">
       <Image
         src={movie.thumbnail.regular.small}
         alt={movie.title}
         width="100"
         height="100"
-        className="w-[100%] rounded-md"
+        className="w-[100%] rounded-md movh"
       />
-      <Image
-        src={img8}
-        alt="meeeeeeee"
-        width="20"
-        className="mt-10 cursor-pointer absolute top1 right-2 "
-      />
+      <div onClick={() => onAdd(movie)}>
+        <Image
+          src={img8}
+          alt="meeeeeeee"
+          width="20"
+          className="mt-10 cursor-pointer absolute top1 right-2 "
+        />
+      </div>
       <div className="mt-3">
         <div className="flex justify-between w-[8rem]">
           <p className="text-[0.7rem] text-gray-300">{movie.year}</p>

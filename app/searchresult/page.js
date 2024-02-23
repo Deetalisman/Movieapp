@@ -1,23 +1,27 @@
 import Image from "next/image";
 import img3 from "./icon-nav-movies.svg";
 import img8 from "./icon-nav-bookmark.svg";
-function Searchresult({ AllMovies, Search }) {
+function Searchresult({ AllMovies, Search, onAdd }) {
   return (
-    <div className=" ml-24 sm:ml-32 mt-24 ">
+    <div className=" ml-24 sm:ml-32 mt-24 mainbody ">
       {Search !== "" ? <p>Result for {Search}</p> : <p>Not Found</p>}
       {Search !== "" && (
         <div className="flex justify-between flex-wrap mt-5">
           {AllMovies?.filter((searchres) =>
             searchres.title.toLowerCase().includes(Search.toLowerCase())
           )?.map((searchr) => (
-            <Searchresults key={searchr.title} searchr={searchr} />
+            <Searchresults
+              key={searchr.title}
+              searchr={searchr}
+              onAdd={onAdd}
+            />
           ))}
         </div>
       )}
     </div>
   );
 }
-function Searchresults({ searchr }) {
+function Searchresults({ searchr, onAdd }) {
   return (
     <div className="mb-5 relative  lg:w-[22%] md:w-[30%] w-[48%]">
       <Image
@@ -27,12 +31,14 @@ function Searchresults({ searchr }) {
         alt={searchr.title}
         className="w-[100%] rounded-md"
       />
-      <Image
-        src={img8}
-        alt="meeeeeeee"
-        width="20"
-        className="mt-10 cursor-pointer absolute top1 right-2 "
-      />
+      <div onClick={() => onAdd(searchr)}>
+        <Image
+          src={img8}
+          alt="meeeeeeee"
+          width="20"
+          className="mt-10 cursor-pointer absolute top1 right-2 "
+        />
+      </div>
       <div className="mt-2">
         <div className="flex">
           <p className="text-[0.6rem] text-gray-300">{searchr.year}</p>

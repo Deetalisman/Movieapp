@@ -111,3 +111,14 @@ body {
     padding-top: 4rem;
   }
 }
+@media screen and (max-width: 370px) {
+  .mov {
+    width: 100%;
+  }
+  .movh {
+    height: 12rem;
+  }
+  .top {
+    top: 9rem;
+  }
+}

@@ -1,36 +1,38 @@
 import Image from "next/image";
 import img3 from "./icon-nav-movies.svg";
 import img8 from "./icon-nav-bookmark.svg";
-function Tvserieslist({ AllMovies }) {
+function Tvserieslist({ AllMovies, onAdd }) {
   return (
-    <div className=" ml-24 sm:ml-32 mt-24">
+    <div className=" ml-24 sm:ml-32 mt-24 mainbody">
       <h1 className=" text-[1.2rem] md:text-[1.5rem]">Tv Series</h1>
       <div className="flex flex-wrap justify-between mt-4">
         {AllMovies?.filter((tvseries) => tvseries.category == "TV Series")?.map(
           (tvserie) => (
-            <Eachtvseries key={tvserie.title} tvserie={tvserie} />
+            <Eachtvseries key={tvserie.title} tvserie={tvserie} onAdd={onAdd} />
           )
         )}
       </div>
     </div>
   );
 }
-function Eachtvseries({ tvserie }) {
+function Eachtvseries({ tvserie, onAdd }) {
   return (
-    <div className="relative mb-5  lg:w-[22%] md:w-[30%] w-[48%]">
+    <div className="relative mb-5  lg:w-[22%] md:w-[30%] w-[48%] mov">
       <Image
         src={tvserie.thumbnail.regular.small}
         alt={tvserie.title}
         width="100"
         height="100"
-        className="w-[100%] rounded-md"
+        className="w-[100%] rounded-md movh"
       />
-      <Image
-        src={img8}
-        alt="meeeeeeee"
-        width="20"
-        className="mt-10 cursor-pointer absolute top1 right-2 "
-      />
+      <div onClick={() => onAdd(tvserie)}>
+        <Image
+          src={img8}
+          alt="meeeeeeee"
+          width="20"
+          className="mt-10 cursor-pointer absolute top1 right-2 "
+        />
+      </div>
       <div className="mt-3">
         <div className="flex justify-between w-[10rem]">
           <p className="text-[0.7rem] text-gray-300">{tvserie.year}</p>

@@ -34,6 +34,16 @@ function Project() {
       console.log(Search);
     }
   }
+  function handleAddBook(Trend) {
+    setBook((Book) => [...Book, Trend]);
+    console.log(Book);
+    console.log("Bookmark");
+    console.log(Trend);
+    console.log(Book);
+  }
+  function handleAdd(Trend) {
+    handleAddBook(Trend);
+  }
   return (
     <div className="main ">
       <Navbar
@@ -55,13 +65,24 @@ function Project() {
           setSearch={setSearch}
           handleSearch={handleSearch}
         />
-        {All && <Mainbody AllMovies={AllMovies} />}
+        {All && <Mainbody AllMovies={AllMovies} onAdd={handleAdd} />}
         {Movies && (
-          <Movieslist AllMovies={AllMovies} Book={Book} setBook={setBook} />
+          <Movieslist
+            AllMovies={AllMovies}
+            Book={Book}
+            setBook={setBook}
+            onAdd={handleAdd}
+          />
         )}
-        {Tvseries && <Tvserieslist AllMovies={AllMovies} />}
-        {Bookmark && <Bookmarklist Book={Book} />}
-        {Searchpost && <Searchresult AllMovies={AllMovies} Search={Search} />}
+        {Tvseries && <Tvserieslist AllMovies={AllMovies} onAdd={handleAdd} />}
+        {Bookmark && <Bookmarklist Book={Book} onAdd={handleAdd} />}
+        {Searchpost && (
+          <Searchresult
+            AllMovies={AllMovies}
+            Search={Search}
+            onAdd={handleAdd}
+          />
+        )}
       </div>
     </div>
   );
