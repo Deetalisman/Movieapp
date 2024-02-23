@@ -42,7 +42,11 @@ function Project() {
     console.log(Book);
   }
   function handleAdd(Trend) {
-    handleAddBook(Trend);
+    if (Book.includes(Trend)) {
+      console.log("Already selected");
+    } else {
+      handleAddBook(Trend);
+    }
   }
   return (
     <div className="main ">

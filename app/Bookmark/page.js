@@ -5,11 +5,15 @@ function Bookmarklist({ Book, onAdd }) {
   return (
     <div className="ml-32  mt-24 mainbody">
       <h1 className="text-[1.2rem] md:text-[1.5rem]">Bookmarked Movies</h1>
-      <div className="flex flex-wrap justify-between mt-4">
-        {Book?.map((boo) => (
-          <Eachbookmark key={boo.title} boo={boo} onAdd={onAdd} />
-        ))}
-      </div>
+      {Book == "" ? (
+        <p>No Bookmarked movies</p>
+      ) : (
+        <div className="flex flex-wrap justify-between mt-4">
+          {Book?.map((boo) => (
+            <Eachbookmark key={boo.title} boo={boo} onAdd={onAdd} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
